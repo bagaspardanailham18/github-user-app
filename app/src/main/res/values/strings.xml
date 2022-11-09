@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Github User App</string>
+    <string name="dummy_user_name_text">User Name</string>
+    <string name="dummy_username_text">\@michaelstrong</string>
+    <string name="dummy_name_text">Michael Strong</string>
+    <string name="dummy_repo_description_text">This is a sample app that is part of a series of blog posts I have written about how to architect an android application using Uncle Bob\'s clean architecture approach.</string>
+    <string name="dummy_number_text">55</string>
 </resources>
