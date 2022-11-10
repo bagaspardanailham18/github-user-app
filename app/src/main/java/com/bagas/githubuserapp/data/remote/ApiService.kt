@@ -30,6 +30,6 @@ interface ApiService {
     @Headers("Authorization: Bearer ${BuildConfig.GITHUB_API_TOKEN}")
     suspend fun getReposForAUser(
         @Path("username") username: String
-    ) : List<ListRepositoriesForAUserResponseItem>
+    ) : ListRepositoriesForAUserResponse
 
 }

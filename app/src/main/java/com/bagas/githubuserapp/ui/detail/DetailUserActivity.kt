@@ -86,7 +86,7 @@ class DetailUserActivity : AppCompatActivity() {
                 when (reposResult) {
                     is Result.Success -> {
                         binding.progressBar.visibility = View.GONE
-                        adapter.submitList(reposResult.data)
+                        adapter.submitList(reposResult.data.listRepositoriesForAUserResponse)
                         binding.rvRepos.layoutManager = LinearLayoutManager(this@DetailUserActivity)
                         binding.rvRepos.adapter = adapter
                         binding.rvRepos.setHasFixedSize(true)

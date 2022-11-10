@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.bagas.githubuserapp.data.remote.Result
 import com.bagas.githubuserapp.data.GithubUserAppRepository
 import com.bagas.githubuserapp.data.remote.responses.DetailUserResponse
+import com.bagas.githubuserapp.data.remote.responses.ListRepositoriesForAUserResponse
 import com.bagas.githubuserapp.data.remote.responses.ListRepositoriesForAUserResponseItem
 import com.bagas.githubuserapp.data.remote.responses.ListUserResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +17,7 @@ class DetailViewModel @Inject constructor(private val githubUserAppRepository: G
     fun getDetailUser(username: String): LiveData<Result<DetailUserResponse>> =
         githubUserAppRepository.getDetailUser(username)
 
-    fun getUserRepos(username: String): LiveData<Result<List<ListRepositoriesForAUserResponseItem>>> =
+    fun getUserRepos(username: String): LiveData<Result<ListRepositoriesForAUserResponse>> =
         githubUserAppRepository.getReposForAUser(username)
 
 }

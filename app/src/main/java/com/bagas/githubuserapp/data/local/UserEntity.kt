@@ -4,8 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "user_entities")
+@Entity(tableName = "user")
 data class UserEntity(
+
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: Int? = null,
@@ -15,4 +16,5 @@ data class UserEntity(
 
     @ColumnInfo(name = "avatarUrl")
     val avatarUrl: String? = null
+
 )

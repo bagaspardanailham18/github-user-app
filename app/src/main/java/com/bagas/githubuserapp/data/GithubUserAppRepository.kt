@@ -1,6 +1,5 @@
 package com.bagas.githubuserapp.data
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
@@ -19,7 +18,7 @@ class GithubUserAppRepository @Inject constructor(
     ) {
 
     fun getAllUsers(): LiveData<Result<List<UserEntity>>> = liveData {
-        emit(Result.Loading)
+        //emit(Result.Loading)
         try {
             val response = apiService.getAllUsers()
             val userList = response.map { data ->
@@ -42,7 +41,7 @@ class GithubUserAppRepository @Inject constructor(
     }
 
     fun getSearchedUsers(query: String): LiveData<Result<SearchUserResponse>> = liveData {
-        emit(Result.Loading)
+        //emit(Result.Loading)
         try {
             val response = apiService.getSearchedUsers(query)
             emit(Result.Success(response))
@@ -53,7 +52,7 @@ class GithubUserAppRepository @Inject constructor(
     }
 
     fun getDetailUser(username: String): LiveData<Result<DetailUserResponse>> = liveData {
-        emit(Result.Loading)
+        //emit(Result.Loading)
         try {
             val response = apiService.getDetailUser(username)
             emit(Result.Success(response))
@@ -63,8 +62,8 @@ class GithubUserAppRepository @Inject constructor(
         }
     }
 
-    fun getReposForAUser(username: String): LiveData<Result<List<ListRepositoriesForAUserResponseItem>>> = liveData {
-        emit(Result.Loading)
+    fun getReposForAUser(username: String): LiveData<Result<ListRepositoriesForAUserResponse>> = liveData {
+        //emit(Result.Loading)
         try {
             val response = apiService.getReposForAUser(username)
             emit(Result.Success(response))
