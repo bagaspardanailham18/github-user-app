@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bagas.githubuserapp.data.local.UserEntity
 import com.bagas.githubuserapp.data.remote.responses.ListUserResponseItem
 import com.bagas.githubuserapp.databinding.ItemRowUsersBinding
 import com.bagas.githubuserapp.ui.detail.DetailUserActivity
 import com.bumptech.glide.Glide
 
-class ListUserAdapter: ListAdapter<ListUserResponseItem, ListUserAdapter.ListUserVH>(DIFF_CALBACK) {
+class ListUserAdapter: ListAdapter<UserEntity, ListUserAdapter.ListUserVH>(DIFF_CALBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListUserVH {
         val binding = ItemRowUsersBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -26,7 +27,7 @@ class ListUserAdapter: ListAdapter<ListUserResponseItem, ListUserAdapter.ListUse
     }
 
     inner class ListUserVH(private val binding: ItemRowUsersBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(listUser: ListUserResponseItem?) {
+        fun bind(listUser: UserEntity?) {
             with(binding) {
                 Glide.with(itemView.context)
                     .load(listUser!!.avatarUrl)
@@ -45,18 +46,18 @@ class ListUserAdapter: ListAdapter<ListUserResponseItem, ListUserAdapter.ListUse
     }
 
     companion object {
-        val DIFF_CALBACK: DiffUtil.ItemCallback<ListUserResponseItem> =
-            object : DiffUtil.ItemCallback<ListUserResponseItem>() {
+        val DIFF_CALBACK: DiffUtil.ItemCallback<UserEntity> =
+            object : DiffUtil.ItemCallback<UserEntity>() {
                 override fun areItemsTheSame(
-                    oldItem: ListUserResponseItem,
-                    newItem: ListUserResponseItem
+                    oldItem: UserEntity,
+                    newItem: UserEntity
                 ): Boolean {
                     return oldItem.login == newItem.login
                 }
 
                 override fun areContentsTheSame(
-                    oldItem: ListUserResponseItem,
-                    newItem: ListUserResponseItem
+                    oldItem: UserEntity,
+                    newItem: UserEntity
                 ): Boolean {
                     return oldItem == newItem
                 }
